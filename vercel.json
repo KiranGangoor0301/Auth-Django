@@ -10,7 +10,7 @@
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "<Authenticate>/wsgi.py"
+      "dest": "<Authenticate>/wsgi.py",
     }
   ]
 }
