@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'Authenticate.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.db.sqlite3',
+        'ENGINE': 'django.db.backends.sqlite3',
         'NAME': 'C:/Users/Kirankumar Gangoor/OneDrive/Desktop/db/db.sqlite3'
     }
 }
