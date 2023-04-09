@@ -77,11 +77,8 @@ WSGI_APPLICATION = 'Authenticate.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Authentication',
-        'USER': 'postgres',
-        'PASSWORD':'1234',
-        'HOST': 'localhost',
+        'ENGINE': 'django.db.backends.db.sqlite3',
+        'NAME': 'C:/Users/Kirankumar Gangoor/OneDrive/Desktop/db/db.sqlite3'
     }
 }
 
