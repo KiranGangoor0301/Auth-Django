@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Hover Effect Navbar</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-faM+6przxY6rKg6Wdznvz1kp+9eUcqz8Vld+ic+vBBp25K89FwSfbJzQcfZdGrvZ/4K9J4oO7V0dM+uSt7Qm3w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			font-family: sans-serif;
+		}
+
+		.navbar {
+			background-color: #333;
+			height: 60px;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: 0 20px;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 999;
+		}
+
+		.navbar-brand {
+			color: #fff;
+			font-size: 24px;
+			font-weight: bold;
+			text-decoration: none;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+
+		.navbar-nav {
+			display: flex;
+			align-items: center;
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.nav-item {
+			margin-right: 20px;
+		}
+
+		.nav-link {
+			color: #fff;
+			text-decoration: none;
+			font-size: 18px;
+			position: relative;
+			transition: all 0.3s ease;
+		}
+
+		.nav-link::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			bottom: -2px;
+			width: 100%;
+			height: 2px;
+			background-color: #fff;
+			transform: scaleX(0);
+			transform-origin: left;
+			transition: transform 0.3s ease;
+		}
+
+		.nav-link:hover::before {
+			transform: scaleX(1);
+		}
+
+		.fa {
+			margin-right: 5px;
+		}
+
+		@media(max-width: 768px) {
+			.navbar-nav {
+				flex-direction: column;
+				position: absolute;
+				top: 60px;
+				left: 0;
+				background-color: #333;
+				width: 100%;
+				justify-content: flex-start;
+				align-items: flex-start;
+				padding: 20px;
+				transform: translateY(-100%);
+				transition: all 0.3s ease;
+				z-index: 999;
+			}
+
+			.navbar-nav.show {
+				transform: translateY(0%);
+			}
+
+			.navbar-nav li {
+				margin: 10px 0;
+			}
+
+			.navbar-toggle {
+				display: block;
+			}
+		}
+        .email
+        {
+            font-weight: normal;
+            color: #fff;
+        }
+        .img
+        {
+            border-radius: 30px;
+        }
+	</style>
+</head>
+<body>
+	<nav class="navbar">
+		<a href="#" class="navbar-brand">Welcome to Our Website,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{request.user}}</a>
+		
+		<ul class="navbar-nav">
+
+			<li class="nav-item"><img class="rounded-circle account-img img" src="{{user.profile.image.url}}" alt="" height="50px" width="50px"></li>
+			<li class="nav-item"><p class="text-secondary email">{{user.email}}</p></li>
+			<li class="nav-item">
+				<a href="/index" class="nav-link">Home</a>
+                </li>
+			<li class="nav-item">
+				<a href="./about" class="nav-link">About Me</a>
+                </li>
+			<li class="nav-item">
+				<a href="./logout" class="nav-link">Logout</a>
+                </li>
+                </ul>
+                </nav>
+                {% block body %}
+                    
+                {% endblock body %}
+                </body>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+                </html>
